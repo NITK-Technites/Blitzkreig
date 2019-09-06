@@ -1,9 +1,9 @@
 
 
-#define ir_leds 4
+#define ir_leds 3
 #define id 1
 
-int burst_len=0;
+unsigned long burst_len=0;
 
 void setup()
 {
@@ -15,7 +15,7 @@ void setup()
         burst_len=1000;
         break;
        case 2:
-        burst_len=2000;
+        burst_len=2000000;
         break; 
     }
 
@@ -24,7 +24,7 @@ void setup()
 void loop()
 {
   
-  for(int i=1;i<=burst_len/26;i++)
+  for(unsigned long i=1;i<=burst_len/26;i++)
   {
     digitalWrite(ir_leds,1);
     delayMicroseconds(13);
@@ -32,6 +32,6 @@ void loop()
     delayMicroseconds(13);
   }
   
-///delay(100);
+  delay(1000);
   
 }
